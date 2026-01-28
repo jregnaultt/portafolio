@@ -1,0 +1,36 @@
+---
+import "@/styles/globals.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Portafolio de Javier Regnault" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Basics -->
+		<title>{title}</title>
+		
+		<!-- Google Analytics -->
+		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-XXXXXXXXXX');
+		</script>
+	</head>
+	<body class="min-h-screen bg-background font-sans antialiased">
+		<slot />
+	</body>
+</html>

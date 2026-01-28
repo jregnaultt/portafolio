@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+---
+
+<Layout title="Javier Regnault - Portafolio">
+	<main class="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[80vh]">
+		<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-center">
+			Hola, soy <span class="text-primary">Javier Regnault</span>
+		</h1>
+		<p class="text-xl text-muted-foreground mb-8 text-center max-w-2xl">
+			Desarrollador Full Stack apasionado por crear experiencias web increíbles.
+		</p>
+		
+		<div class="flex gap-4">
+			<Button client:load>Ver Proyectos</Button>
+			<Button variant="outline" client:load>Contactar</Button>
+		</div>
+	</main>
+</Layout>
