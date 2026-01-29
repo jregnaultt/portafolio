@@ -1,0 +1,106 @@
+---
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    image:
+      "https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white",
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    image:
+      "https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white",
+  },
+  PYTHON: {
+    name: "Python",
+    image:
+      "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
+  },
+  FLASK: {
+    name: "Flask",
+    image:
+      "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white",
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "CRM Inteligente AFTIM - Gestión con IA",
+    description:
+      "Sistema integral de gestión empresarial que integra WhatsApp y Google Gemini. Permite análisis de ventas en tiempo real, gestión automática de leads y proyecciones de negocio basadas en IA.",
+    link: "https://aftim.com",
+    image: "/projects/project-crm.webp",
+    tags: [TAGS.PYTHON, TAGS.FLASK, TAGS.TAILWIND],
+  },
+  {
+    title: "Helpdesk Moderno - Soporte vía WhatsApp",
+    description:
+      "Plataforma de atención al cliente que centraliza tickets y conversaciones de WhatsApp. Optimiza los tiempos de respuesta y permite la asignación inteligente de agentes.",
+    link: "https://aftim.com",
+    image: "/projects/project-helpdesk.webp",
+    tags: [TAGS.NEXT, TAGS.PYTHON, TAGS.TAILWIND],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+        <div class="w-full md:w-1/2">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+            <img
+              alt="Captura del proyecto"
+              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {title}
+          </h3>
+          <div class="flex flex-wrap mt-2">
+            <ul class="flex flex-row mb-2 gap-x-2">
+              {tags.map((tag) => (
+                <li>
+                  <img class="h-6 md:h-7" src={tag.image} alt={tag.name} />
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-400">
+              {description}
+            </div>
+            <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {link && (
+                <a
+                  href={link}
+                  class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 py-2 px-4 bg-white/5 hover:scale-110 hover:bg-white/10 transition text-sm"
+                >
+                  Visitar sitio
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+                    <path d="M11 13l9 -9" />
+                    <path d="M15 4h5v5" />
+                  </svg>
+                </a>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

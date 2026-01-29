@@ -1,20 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Button } from '@/components/ui/button';
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero.astro";
+import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
+import SectionContainer from "@/components/SectionContainer.astro";
+import { Briefcase, Code } from "lucide-react";
 ---
 
-<Layout title="Javier Regnault - Portafolio">
-	<main class="container mx-auto px-4 py-16 flex flex-col items-center justify-center min-h-[80vh]">
-		<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-center">
-			Hola, soy <span class="text-primary">Javier Regnault</span>
-		</h1>
-		<p class="text-xl text-muted-foreground mb-8 text-center max-w-2xl">
-			Desarrollador Full Stack apasionado por crear experiencias web increíbles.
-		</p>
-		
-		<div class="flex gap-4">
-			<Button client:load>Ver Proyectos</Button>
-			<Button variant="outline" client:load>Contactar</Button>
-		</div>
-	</main>
+<Layout
+  title="Porfatolio de Javier Regnault - Desarrollador y Programador Web con experencia en PHP y Laravel"
+  description="Contrata a Javier Regnault para crear tu aplicación web o móvil. Especializado en PHP, Laravel, Next.js y Astro."
+>
+  <main class="px-4">
+    <SectionContainer class="py-24 md:py-36">
+      <Hero />
+    </SectionContainer>
+
+    <SectionContainer id="experiencia" class="pb-22">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <Briefcase className="size-7" />
+        Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos" class="pb-22">
+      <h2
+        class="text-3xl font-semibold mb-6 flex gap-x-3 items-center text-black/80 dark:text-white/80"
+      >
+        <Code className="size-7" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+    <!-- TODO: About Section -->
+  </main>
 </Layout>

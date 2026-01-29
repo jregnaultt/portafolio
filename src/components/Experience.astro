@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCIE = [
+  {
+    date: "Septiembre 2025 - Actualidad",
+    title: "Desarrollador Full Stack",
+    company: "Somos Sistemas (AFTIM)",
+    description: `Desarrollando funcionalidades clave y soluciones para la gestión empresarial:
+<br><br>
+&bull; <strong class="text-yellow-400">CRM Inteligente con IA (Python/Flask)</strong>: Diseñé e implementé un sistema integral integrado con WhatsApp y Google Gemini. Permite análisis de ventas en tiempo real, gestión multicanal y proyecciones automáticas de metas, mejorando la toma de decisiones estratégicas.
+<br><br>
+&bull; <strong class="text-yellow-400">Helpdesk Moderno (Next.js & Python)</strong>: Desarrollé un sistema de atención al cliente robusto integrando el core de WhatsApp Web, optimizando el tiempo de respuesta y la gestión de tickets de soporte.
+<br><br>
+&bull; <strong class="text-yellow-400">Evolución de ERP</strong>: Crear módulos críticos como el sistema de venta de tickets, y lideré la refactorización y resolución de errores complejos en el núcleo del sistema, aumentando la estabilidad y eficiencia operativa.`,
+    link: "https://aftim.com",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie}>
+          <div
+            class="prose dark:prose-invert text-pretty"
+            set:html={experiencie.description}
+          />
+        </ExperienceItem>
+      </li>
+    ))
+  }
+</ol>
